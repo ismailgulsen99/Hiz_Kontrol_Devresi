@@ -1,0 +1,22 @@
+void setup()
+{
+  pinMode(7, OUTPUT);
+  pinMode(5, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int motor = analogRead(A3);
+  motor = map(motor, 0, 1023, 0, 255);
+  analogWrite(5, motor);
+  Serial.println(motor);
+  if(motor>120)
+  {
+    digitalWrite(7, 255);
+  }
+  else
+    digitalWrite(7, 0);
+  
+  delay(1000);
+}
